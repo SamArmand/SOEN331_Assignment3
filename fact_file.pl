@@ -59,3 +59,15 @@ superstate(init, senchk).
 superstate(init, tchk).
 superstate(init, psichk).
 superstate(init, ready).
+
+superstate(monitoring, monidle).
+superstate(monitoring, regulate_environment).
+superstate(monitoring, lockdown).
+
+superstate(lockdown, prep_vpurge).
+superstate(lockdown, alt_temp).
+superstate(lockdown, alt_psi).
+superstate(lockdown, risk_assess).
+superstate(lockdown, safe_status).
+superstate(lockdown, lockdown_exit).
+
