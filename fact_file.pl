@@ -38,3 +38,10 @@ state(applicable_rescues).
 state(reset_module_data).
 state(error_diagnosis_exit).
 
+%% Initial states
+initial_state(active, null).
+initial_state(dormant, active).
+initial_state(boot_hw, init).
+initial_state(monidle, monitoring).
+initial_state(prep_vpurge, lockdown).
+initial_state(error_rcv, error_diagnosis).
