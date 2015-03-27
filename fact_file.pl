@@ -11,3 +11,10 @@ state(idle).
 state(monitoring).
 state(error_diagnosis).
 state(safe_shutdown).
+
+%% Refine init states
+state(boot_hw).
+state(senchk).
+state(tchk).
+state(psichk).
+state(ready).
