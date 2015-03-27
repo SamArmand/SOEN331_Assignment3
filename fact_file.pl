@@ -71,3 +71,20 @@ superstate(lockdown, risk_assess).
 superstate(lockdown, safe_status).
 superstate(lockdown, lockdown_exit).
 
+superstate(error_diagnosis, error_rcv).
+superstate(error_diagnosis, applicable_rescues).
+superstate(error_diagnosis, reset_module_data).
+superstate(error_diagnosis, error_diagnosis_exit).
+
+
+
+
+
+
+
+
+
+
+
+
+
