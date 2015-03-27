@@ -18,3 +18,8 @@ state(senchk).
 state(tchk).
 state(psichk).
 state(ready).
+
+%% Refine monitoring states
+state(monidle).
+state(regulate_environment).
+state(lockdown).
