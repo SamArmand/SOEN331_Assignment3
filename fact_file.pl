@@ -113,4 +113,8 @@ transition(risk_assess, prep_vpurge, null, 'risk >= 0.01', null).
 transition(risk_assess, safe_status, null, 'risk < 0.01', unlock_doors).
 transition(safe_status, lockdown_exit, null, null, null).
 
-
+%% error_diagnosis transitions
+transition(error_rcv, applicable_rescues, null, 'err_protocol_def', null).
+transition(error_rcv, reset_module_data, null, '!err_protocol_def', null).
+transition(applicable_rescues, error_diagnosis_exit, apply_protocol_rescues, null, null).
+transition(reset_module_data, error_diagnosis_exit, reset_to_stable, null, null).
