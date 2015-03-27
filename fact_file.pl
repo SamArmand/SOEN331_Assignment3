@@ -45,3 +45,17 @@ initial_state(boot_hw, init).
 initial_state(monidle, monitoring).
 initial_state(prep_vpurge, lockdown).
 initial_state(error_rcv, error_diagnosis).
+
+%% Superstates
+superstate(active, dormant).
+superstate(active, init).
+superstate(active, idle).
+superstate(active, monitoring).
+superstate(active, error_diagnosis).
+superstate(active, safe_shutdown).
+
+superstate(init, boot_hw).
+superstate(init, senchk).
+superstate(init, tchk).
+superstate(init, psichk).
+superstate(init, ready).
