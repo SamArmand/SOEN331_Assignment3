@@ -32,3 +32,9 @@ state(risk_assess).
 state(safe_status).
 state(lockdown_exit).
 
+%% Refine error_diagnosis states
+state(error_rcv).
+state(applicable_rescues).
+state(reset_module_data).
+state(error_diagnosis_exit).
+
