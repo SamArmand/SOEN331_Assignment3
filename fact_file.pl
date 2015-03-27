@@ -23,3 +23,12 @@ state(ready).
 state(monidle).
 state(regulate_environment).
 state(lockdown).
+
+%% Refine lockdown states
+state(prep_vpurge).
+state(alt_temp).
+state(alt_psi).
+state(risk_assess).
+state(safe_status).
+state(lockdown_exit).
+
