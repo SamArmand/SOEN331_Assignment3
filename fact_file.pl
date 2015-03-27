@@ -97,3 +97,20 @@ transition(boot_hw, senchk, hw_ok, null, null).
 transition(senchk, tchk, senok, null, null).
 transition(tchk, psichk, t_ok, null, null).
 transition(psichk, ready, psi_ok, null, null).
+
+%% monitoring transitions
+transition(monidle, regulate_environment, no_contagion, null, null).
+transition(monidle, lockdown, contagion_alert, null, '(FACILITY_CRIT_MESG; inlockdown = true)').
+transition(lockdown, monidle, purge_succ, null, 'inlockdown = false').
+transition(regulate_environment, monidle, after_100ms, null, null).
+
+%% lockdown transitions
+transition(prep_vpurge, alt_temp, initiate_purge, null, lock_doors).
+transition(prep_vpurge, alt_psi, initiate_purge, null, lock_doors).
+transition(alt_temp, risk_assess, tcyc_comp, null, null).
+transition(alt_psi, risk_assess, psicyc_comp, null, null).
+transition(risk_assess, prep_vpurge, null, 'risk >= 0.01', null).
+transition(risk_assess, safe_status, null, 'risk < 0.01', unlock_doors).
+transition(safe_status, lockdown_exit, null, null, null).
+
+
