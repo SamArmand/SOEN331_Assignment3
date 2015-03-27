@@ -76,15 +76,24 @@ superstate(error_diagnosis, applicable_rescues).
 superstate(error_diagnosis, reset_module_data).
 superstate(error_diagnosis, error_diagnosis_exit).
 
+%% Top-level transitions
+transition(active, exit, kill, '!inlockdown', null).
 
+%% active transitions
+transition(dormant, init, start, null, 'retry = 0').
+transition(init, idle, init_ok, null, 'retry = 0').
+transition(idle, monitoring, begin_monitoring, null, null).
+transition(init, error_diagnosis, init_crash, null, init_err_msg).
+transition(error_diagnosis, init, retry_init, 'retry < 3', 'retry++').
+transition(error_diagnosis, safe_shutdown, shutdown, 'retry >= 3', null).
+transition(safe_shutdown, dormant, sleep, null, null).
+transition(idle, error_diagnosis, idle_crash, null, idle_err_msg).
+transition(error_diagnosis, idle, idle_rescue, null, null).
+transition(monitoring, error_diagnosis, monitor_crash, '!inlockdown', moni_err_msg).
+transition(error_diagnosis, monitoring, moni_rescue, null, null).
 
-
-
-
-
-
-
-
-
-
-
+%% init transitions
+transition(boot_hw, senchk, hw_ok, null, null).
+transition(senchk, tchk, senok, null, null).
+transition(tchk, psichk, t_ok, null, null).
+transition(psichk, ready, psi_ok, null, null).
