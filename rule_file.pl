@@ -31,4 +31,15 @@ graph_is_reflexive :- findall(State, transition(State, State, _, _, _), L1),
 						list_to_set(L1, Set),
 						all_states(L2),
 						same_length(L1, L2).
+						
+get_guards(Ret) :- findall(Guard, (transition(_, _, _, Guard, _), Guard \= null), L),
+					list_to_set(L, Ret).
+
+%% We are assuming that a null Event does not qualify as an Event
+get_events(Ret) :- findall(Event, (transition(_, _, Event, _, _), Event \= null), L),
+					list_to_set(L, Ret).
+
+%% We are asuming that a null Action does not qualify as an Action
+get_actions(Ret) :- findall(Action, (transition(_, _, _, _, Action), Action \= null), L),
+					list_to_set(L, Ret).
 
