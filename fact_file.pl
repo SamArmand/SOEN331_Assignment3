@@ -118,3 +118,32 @@ transition(error_rcv, applicable_rescues, null, 'err_protocol_def', null).
 transition(error_rcv, reset_module_data, null, '!err_protocol_def', null).
 transition(applicable_rescues, error_diagnosis_exit, apply_protocol_rescues, null, null).
 transition(reset_module_data, error_diagnosis_exit, reset_to_stable, null, null).
+
+%% To test reflexivity
+%%transition(active, active, null, null, null).
+%%transition(exit, exit, null, null, null).
+%%transition(dormant, dormant, null, null, null).
+%%transition(init, init, null, null, null).
+%%transition(idle, idle, stay_idle, null, null).
+%%transition(monitoring, monitoring, null, null, null).
+%%transition(error_diagnosis, error_diagnosis, null, null, null).
+%%transition(safe_shutdown, safe_shutdown, null, null, null).
+%%transition(boot_hw, boot_hw, null, null, null).
+%%transition(senchk, senchk, null, null, null).
+%%transition(tchk, tchk, null, null, null).
+%%transition(psichk, psichk, null, null, null).
+%%transition(ready, ready, null, null, null).
+%%transition(monidle, monidle, null, null, null).
+%%transition(regulate_environment, regulate_environment, null, null, null).
+%%transition(lockdown, lockdown, null, null, null).
+%%transition(prep_vpurge, prep_vpurge, null, null, null).
+%%transition(alt_temp, alt_temp, null, null, null).
+%%transition(alt_psi, alt_psi, null, null, null).
+%%transition(risk_assess, risk_assess, null, null, null).
+%%transition(safe_status, safe_status, null, null, null).
+%%transition(lockdown_exit, lockdown_exit, null, null, null).
+%%transition(error_rcv, error_rcv, null, null, null).
+%%transition(applicable_rescues, applicable_rescues, null, null, null).
+%%transition(reset_module_data, reset_module_data, null, null, null).
+%%transition(error_diagnosis_exit, error_diagnosis_exit, null, null, null).
+
